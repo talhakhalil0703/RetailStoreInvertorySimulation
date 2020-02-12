@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class FrontEnd {
@@ -13,7 +14,9 @@ public class FrontEnd {
         scan = new Scanner(System.in);
     }
 
-    private void printMenu() {
+    private void printMenu()
+    {
+
         System.out.println("1. List all tools");
         System.out.println("2. Search for tool by toolName");
         System.out.println("3. Search for tool by toolID");
@@ -45,8 +48,10 @@ public class FrontEnd {
                     this.checkItemQuantity();
                     break;
                 case 5:
+                    this.decreaseItem();
                     break;
                 case 6:
+                    this.printOrder();
                     break;
                 case 7:
                     System.out.println("Thanks for using this shop system!");
@@ -58,18 +63,17 @@ public class FrontEnd {
         }
     }
 
-//    private void printOrder() {
-//
-//    }
-//
-//    private void decreaseItem() {
-//
-//    }
-//
-    private void checkItemQuantity() {
+    private void printOrder() {
+        theShop.printOrder();
+    }
+
+    private void decreaseItem() {
         String itemName = this.getItemName();
-        theShop.getItemQuantity(itemName);
-        return;
+        theShop.decreaseItem(itemName);
+    }
+
+    private void checkItemQuantity() {
+        theShop.getItemQuantity();
     }
 
     private String getItemName() {
@@ -101,7 +105,5 @@ public class FrontEnd {
         FrontEnd front = new FrontEnd();
         front.menu();
     }
-
-
 }
 

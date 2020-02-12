@@ -7,6 +7,7 @@ public class Inventory {
 
     public Inventory(ArrayList<Item> itemList) {
         this.itemList = itemList;
+        myOrder = new Order();
     }
 
     public ArrayList<Item> getItemList() {
@@ -17,22 +18,28 @@ public class Inventory {
         this.itemList = itemList;
     }
 
-//    public Item manageItem(String itemName){
-//
-//    }
-//
-//    public void placeOrder(Item item){
-//
-//    }
-//
-//    private Item decreaseItem(String itemName){
-//
-//    }
-//
-//    public int getItemQuantity(String itemName) {
-//
-//    }
-//
+    public boolean manageItem(String itemName){
+        Item I = searchForItem(itemName);
+        if (I.decreaseItemQuantity() == null) {
+           return false;
+        }
+        return true;
+    }
+
+    private boolean decreaseItem(String itemName){
+        boolean ret = false;
+
+        for (Item I: itemList){
+            if(I.getItemName().equals(itemName)){
+                I.decreaseItemQuantity();
+                ret = true;
+                break;
+            }
+        }
+
+        return ret;
+    }
+
     public Item searchForItem(String itemName){
         for (Item I: itemList){
             if(I.getItemName().equals(itemName)){
@@ -51,11 +58,13 @@ public class Inventory {
         }
         return null;
     }
-//
-//    public printOrder(String itemName){
-//
-//    }
 
+    public void getItemQuantity(){
+        for (Item I: itemList){
+            if (I.generateOrderLine() != null)
+                myOrder.addOrderLines(I.getOrderLine());
+        }
+    }
     public void printItems(){
         System.out.println("---------------------------------");
         for (Item I: itemList){
@@ -66,6 +75,9 @@ public class Inventory {
         System.out.println();
     }
 
+    public void printOrder(){
+        System.out.println(myOrder);
+    }
 
 }
 

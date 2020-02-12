@@ -11,7 +11,7 @@ public class FileManager {
         ArrayList<Item> items = new ArrayList<Item>();
 
         try {
-            FileReader fr = new FileReader("/home/ugd/talha.khalil1/RetailStoreInvertorySimulation/src/items.txt");
+            FileReader fr = new FileReader(System.getProperty("user.dir") + "/src/items.txt");
             BufferedReader br = new BufferedReader(fr);
 
             String line = "";
@@ -47,7 +47,7 @@ public class FileManager {
        suppliers = new ArrayList<Supplier>();
 
         try {
-            FileReader fr = new FileReader("/home/ugd/talha.khalil1/RetailStoreInvertorySimulation/src/suppliers.txt");
+            FileReader fr = new FileReader(System.getProperty("user.dir") + "/src/suppliers.txt");
             BufferedReader br = new BufferedReader(fr);
 
             String line = "";
