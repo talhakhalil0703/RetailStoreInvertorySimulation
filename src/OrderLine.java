@@ -38,7 +38,7 @@ public class OrderLine {
     public String toString(){
         String S = "Item description: " + getItemToOrderName();
         S += "\n" + "Amount ordered: " + getQuantity();
-        S += "\n" + "Supplier: " + getItemSupplier();
+        S += "\n" + "Supplier: " + getItemSupplier() + "\n";
         return S;
     }
 

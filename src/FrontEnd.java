@@ -20,7 +20,7 @@ public class FrontEnd {
         System.out.println("1. List all tools");
         System.out.println("2. Search for tool by toolName");
         System.out.println("3. Search for tool by toolID");
-        System.out.println("4. Check item quantity");
+        System.out.println("4. Check item quantities");
         System.out.println("5. Decrease item quantity");
         System.out.println("6. Print today's order");
         System.out.println("7. Quit");

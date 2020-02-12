@@ -5,12 +5,12 @@ import java.util.Calendar;
 public class Order {
     private ArrayList<OrderLine> orderLines;
     private String dateOrdered;
-    private double orderID;
+    private int orderID;
 
     public Order(){
         orderLines = new ArrayList<OrderLine>();
         dateOrdered = String.valueOf(Calendar.DAY_OF_MONTH) +"/" + String.valueOf(Calendar.MONTH) + "/"+ String.valueOf(Calendar.YEAR);
-        orderID = Math.random()*99999;
+        orderID = (int)(Math.random()*99999);
     }
 
     public ArrayList<OrderLine> getOrderLines() {
@@ -34,11 +34,14 @@ public class Order {
 
     @Override
     public String toString(){
-        String S = "Order ID: " + String.valueOf(orderID) + "\n";
-        S += "Date Ordered: " + dateOrdered + "\n";
+
+        String S = "**********************************************\n";
+        S += "\nOrder ID: " + String.valueOf(orderID) + "\n";
+        S += "Date Ordered: " + dateOrdered + "\n\n";
         for(OrderLine itemOrder : orderLines){
-            S += itemOrder;
+            S += itemOrder + "\n";
         }
+        S += "**********************************************\n";
         return S;
     }
 }

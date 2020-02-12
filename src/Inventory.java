@@ -60,6 +60,7 @@ public class Inventory {
     }
 
     public void getItemQuantity(){
+        System.out.println();
         for (Item I: itemList){
             if (I.generateOrderLine() != null)
                 myOrder.addOrderLines(I.getOrderLine());
