@@ -56,7 +56,7 @@ public class Item {
 
     /**
      * Decreases the item quantity by 1 if greater than 0, and calls generateOrderLine
-     * @return OrderLine if quantity < 50, else null
+     * @return OrderLine if quantity less than 50, else null
      */
     public OrderLine decreaseItemQuantity() {
 

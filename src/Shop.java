@@ -80,6 +80,8 @@ public class Shop {
 
     /**
      * Decreases items quantity if it exists, and has more than 0, if the quantity is less than 50 creates and order for it
+     * @return true if decreased item quantity else false
+     *
      */
     public boolean decreaseItem(String itemName) {
         return theInventory.manageItem(itemName);

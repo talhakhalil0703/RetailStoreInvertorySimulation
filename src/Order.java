@@ -50,7 +50,7 @@ public class Order {
 
     /**
      * Adds an OrderLine to OrderLines ArrayList
-     * @param orderLines
+     * @param orderLines Orderline
      */
     public void addOrderLines(OrderLine orderLines) {
         this.orderLines.add(orderLines);
