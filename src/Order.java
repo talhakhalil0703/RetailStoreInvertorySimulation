@@ -34,7 +34,9 @@ public class Order {
 
     @Override
     public String toString(){
-
+        if (orderLines.isEmpty()) {
+            return "There is nothing to order as of right now, please check quantites";
+        }
         String S = "**********************************************\n";
         S += "\nOrder ID: " + String.valueOf(orderID) + "\n";
         S += "Date Ordered: " + dateOrdered + "\n\n";

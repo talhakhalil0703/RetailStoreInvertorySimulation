@@ -25,7 +25,6 @@ public class Item {
     }
 
     public OrderLine generateOrderLine() {
-
         if (this.itemQuantity < ORDERMAX) {
             if (!alreadyOrdered) {
                 orderLine = new OrderLine(itemName, ORDERMAX - itemQuantity, theSupplier.getSupplierName());
@@ -71,7 +70,5 @@ public class Item {
     public String toString() {
         return "Item Id: " + String.valueOf(itemID) + ", Item Name: " + String.valueOf(itemName) + ", Item Quantity: " + String.valueOf(itemQuantity);
     }
-
-
 }
 

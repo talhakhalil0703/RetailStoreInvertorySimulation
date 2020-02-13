@@ -1,12 +1,16 @@
+import javax.annotation.processing.Filer;
+
 public class Shop {
 
 
     private Inventory theInventory;
     private SupplierList theSuppliers;
+    FileManager FM;
 
     public Shop(Inventory theInventory, SupplierList theSuppliers) {
         this.theInventory = theInventory;
         this.theSuppliers = theSuppliers;
+        FM = new FileManager();
     }
 
     public void listAllItems() {
@@ -35,13 +39,13 @@ public class Shop {
       theInventory.getItemQuantity();
     }
 
-
     public boolean decreaseItem(String itemName) {
         return theInventory.manageItem(itemName);
     }
 
     public void printOrder(){
         theInventory.printOrder();
+        FM.writeOrder(theInventory.getOrder());
     }
 
 }

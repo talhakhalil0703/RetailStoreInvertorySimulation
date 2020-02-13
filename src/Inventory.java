@@ -20,9 +20,14 @@ public class Inventory {
 
     public boolean manageItem(String itemName){
         Item I = searchForItem(itemName);
-        if (I.decreaseItemQuantity() == null) {
-           return false;
+
+        if (I == null) {
+            System.out.println("The item you searched for was not found! ");
+            return false;
         }
+        if (I.decreaseItemQuantity() == null )
+            return false;
+
         return true;
     }
 
@@ -36,7 +41,6 @@ public class Inventory {
                 break;
             }
         }
-
         return ret;
     }
 
@@ -46,7 +50,6 @@ public class Inventory {
                 return I;
             }
         }
-
         return null;
     }
 
@@ -62,10 +65,12 @@ public class Inventory {
     public void getItemQuantity(){
         System.out.println();
         for (Item I: itemList){
+            System.out.println("The following items have a quantity of less than 50, and need to be ordered:\n");
             if (I.generateOrderLine() != null)
                 myOrder.addOrderLines(I.getOrderLine());
         }
     }
+
     public void printItems(){
         System.out.println("---------------------------------");
         for (Item I: itemList){
@@ -78,6 +83,10 @@ public class Inventory {
 
     public void printOrder(){
         System.out.println(myOrder);
+    }
+
+    public Order getOrder(){
+        return this.myOrder;
     }
 
 }

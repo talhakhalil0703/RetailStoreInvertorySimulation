@@ -1,5 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -11,7 +10,7 @@ public class FileManager {
         ArrayList<Item> items = new ArrayList<Item>();
 
         try {
-            FileReader fr = new FileReader(System.getProperty("user.dir") + "/src/items.txt");
+            FileReader fr = new FileReader(System.getProperty("user.dir") + "/items.txt");
             BufferedReader br = new BufferedReader(fr);
 
             String line = "";
@@ -47,7 +46,7 @@ public class FileManager {
        suppliers = new ArrayList<Supplier>();
 
         try {
-            FileReader fr = new FileReader(System.getProperty("user.dir") + "/src/suppliers.txt");
+            FileReader fr = new FileReader(System.getProperty("user.dir") + "/suppliers.txt");
             BufferedReader br = new BufferedReader(fr);
 
             String line = "";
@@ -61,4 +60,28 @@ public class FileManager {
         return suppliers;
     }
 
+    public void writeOrder(Order order) {
+        if (order == null)
+            return;
+
+        try {
+            File fileToWrite = new File("Order.txt");
+            if (fileToWrite.createNewFile())
+                System.out.println("Order text file created!");
+            else
+                System.out.println("Order text file already exists!");
+        } catch (IOException e){
+            System.out.println("An error occured while trying to create Order file!");
+        }
+
+        try {
+            FileWriter writeToFile =  new FileWriter("Order.txt");
+            writeToFile.write(order.toString());
+            writeToFile.close();
+        } catch (IOException e){
+            System.out.println("Could not write to Order file");
+        }
+
+
+    }
 }
