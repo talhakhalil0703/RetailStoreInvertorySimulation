@@ -36,7 +36,12 @@ public class FileManager {
 
                 Supplier theSupplier = findSupplier(supplierID);
                 if (theSupplier != null) {
-                    Item myItem = new Item(Integer.parseInt(ss[0]), ss[1], Integer.parseInt(ss[2]), Double.parseDouble(ss[3]), theSupplier);
+                    int itemID = Integer.parseInt(ss[0]);
+                    String name = ss[1];
+                    int itemQuantity = Integer.parseInt(ss[2]);
+                    double itemPrice = Double.parseDouble(ss[3]);
+
+                    Item myItem = new Item(itemID, name, itemQuantity, itemPrice, theSupplier);
                     items.add(myItem);
                     theSupplier.getItemList().add(myItem);
                 }
