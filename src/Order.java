@@ -1,6 +1,5 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Order holds all the OrderLines and has the current date stored
@@ -28,7 +27,8 @@ public class Order {
      */
     public Order(){
         orderLines = new ArrayList<OrderLine>();
-        dateOrdered = "Feburary 14, 2020";
+        Date date =  new Date();
+        dateOrdered = date.toString().substring(0,10);
         orderID = (int)(Math.random()*99999);
     }
 
